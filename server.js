@@ -20,12 +20,18 @@ mongoose.connect('mongodb://localhost/task',function(err){
     console.log('connected to the database');
   }
 });
-
+app.use(session({ secret: 'iamsaurav' }));
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser());
-
+app.use(flash())
 app.set('view engine', 'ejs');
+
+
+require('./config/passport')(passport);
+// use passport session
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('./app/route.js')(app, passport);
 
