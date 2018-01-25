@@ -12,6 +12,7 @@ var userSchema = mongoose.Schema({
   var Schema =  mongoose.Schema({
   	name     :String,
   	age   : Number,
+    file : String
   });
 
   //var user = mongoose.model('emp', Schema);

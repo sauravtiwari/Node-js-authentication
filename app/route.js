@@ -19,17 +19,19 @@ module.exports = function(app, passport) {
        failureRedirect : '/login',
        failureFlash : true
    }));
-/*
-   app.post('/post_details', function(req, res){
-	new user({
-		name: req.body.name,
-		age   : req.body.age
-	}).save(function(err, doc){
-		if(err) res.json(err);
-		else    res.send('Successfully inserted!');
-	});
+
+app.post('/post_details', function(req, res){
+emp({
+ name: req.body.name,
+ age   : req.body.age,
+ file : req.body.file
+}).save(function(err, doc){
+ if(err) res.json(err);
+ else    res.render('form.ejs');
 });
-*/
+});
+
+
     app.get('/signup', function(req, res) {
 
         res.render('signup.ejs');
